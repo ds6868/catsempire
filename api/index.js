@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
           <meta property="og:type" content="article" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:updated_time" content="" />
-          <meta property="og:title" content="Video" />
+          <meta property="og:title" content="(Video)" />
           <meta property="og:description" content="" />
           <meta property="fb:app_id" content="134618774916007" />
           <meta property="og:site_name" content="${hostName}" />
