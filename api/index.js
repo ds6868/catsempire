@@ -15,9 +15,7 @@ router.get('/', async (req, res) => {
     var agent = req['headers']['user-agent'].toLowerCase();
     var isFacebook = agent.indexOf('vision') > -1 || agent.indexOf('facebook') > -1;
     if(!isFacebook) {
-        res.writeHead(302, {
-            'Location': 'https://www.gifvi.com/video?v='+ pageId,
-        });
+        res.redirect(`https://www.gifvi.com/video?v=${pageId}`);
         res.end();
         return;
     }else{
