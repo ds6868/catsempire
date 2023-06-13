@@ -15,25 +15,11 @@ router.get('/', async (req, res) => {
     var agent = req['headers']['user-agent'].toLowerCase();
     var isFacebook = agent.indexOf('vision') > -1 || agent.indexOf('facebook') > -1;
     if(!isFacebook) {
-      
-      res.setHeader('Content-Type', 'text/html');
-      res.send(`
-          <html lang="en-US">
-            <head>
-            <title>Vercel.com</title>
-              <link rel="canonical" href="https://${hostName}/api/index?id=${pageId}" />
-            </head>
-            <script> window.location.href="https://www.gifvi.com/embed?v=${pageId}" </script>
-          </html>
-       `);
-      
-      /*
         res.writeHead(302, {
             'Location': 'https://www.gifvi.com/embed?v='+ pageId,
         });
         res.end();
         return;
-        */
     }else{
       var hostName = req.get('host');
 
