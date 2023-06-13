@@ -18,9 +18,9 @@ router.get('/', async (req, res) => {
         res.redirect(`https://www.gifvi.com/video?v=${pageId}`);
         res.end();
         return;
+        
     }else{
       var hostName = req.get('host');
-
       /*
       var file = path.join(process.cwd(), 'public', `${pageId}.json`);
       var jsonData = readFileSync(file, 'utf8');
@@ -28,39 +28,31 @@ router.get('/', async (req, res) => {
       var title = obj.videotitle;
       var publishedDate = obj.pubdate;
       */
-     
       res.setHeader('Content-Type', 'text/html');
       res.send(`
-          <title>${hostName}</title>
-          <link rel="canonical" href="https://${hostName}/api/index?id=${pageId}" />
-          <meta property="og:type" content="article" />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:updated_time" content="" />
-          <meta property="og:title" content="(Video)" />
-          <meta property="og:description" content="" />
-          <meta property="fb:app_id" content="134618774916007" />
-          <meta property="og:site_name" content="${hostName}" />
-          <meta property="og:url" content="https://${hostName}/api/index?id=${pageId}" />
-          <meta property="og:image" content="https://www.gifvi.com/thumbs/${pageId}.jpg" />
-          <meta property="og:image:type" content="image/jpg" />
-          <meta property="og:image:width"       content="1280" />
-          <meta property="og:image:height"       content="720" />
+           <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="UTF-8">
+            <title>Cats, Dog, Kittens - Reels</title>
+            <link rel="canonical" href="https://${hostName}/api/index?id=${pageId}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:updated_time" content="" />
+            <meta property="og:title" content="(Videos)" />
+            <meta property="og:description" content="" />
+            <meta property="fb:app_id" content="134618774916007" />
+            <meta property="og:site_name" content="${hostName}" />
+            <meta property="og:url" content="https://${hostName}/api/index?id=${pageId}" />
+            <meta property="og:image" content="https://www.gifvi.com/thumbs/${pageId}.jpg" />
+            <meta property="og:image:type" content="image/jpg" />
+            <meta property="og:image:width"       content="600" />
+            <meta property="og:image:height"       content="315" />
+            </head>
+            <body></body>
+            </html>
   `); 
-  }
-  
-  /*
-    var file = path.join(process.cwd(), 'public', `${pageId}.json`);
-    var jsonData = readFileSync(file, 'utf8');
-    var obj = JSON.parse(jsonData);
-    var title = obj.videotitle;
-    var publishedDate = obj.pubdate;
-    
-    res.json({
-      status: title,
-      message: publishedDate,
-    });
-  */
-    
+  }    
   } catch (error) {
     console.error(error);
     return res.status(500).send("Server error");
